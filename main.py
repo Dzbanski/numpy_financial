@@ -17,4 +17,6 @@ pv_price = - np.around(npf.fv(rate, periods, 0, pv),2)
 
 price_change = -npf.fv(rate, np.arange(0, periods+1), 0, pv)
 
-print(pv_price)
+pmt = np.around(-npf.pmt(rate_invest, all_periods, 0,  pv_price),2)
+
+pmt_change = np.around(npf.fv(rate_invest, np.arange(1, all_periods + 1), -pmt, 0))
